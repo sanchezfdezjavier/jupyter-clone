@@ -16,6 +16,7 @@ export default function AuthForm() {
       showLinks={false}
       providers={["google"]}
       redirectTo="http://localhost:3000/auth/callback" // TODO: Update when deployed
+      onlyThirdPartyProviders={true}
     />
   );
 }
