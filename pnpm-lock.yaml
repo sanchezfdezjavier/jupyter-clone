@@ -52,6 +52,9 @@ dependencies:
   react-dom:
     specifier: 18.2.0
     version: 18.2.0(react@18.2.0)
+  react-icons:
+    specifier: ^4.9.0
+    version: 4.9.0(react@18.2.0)
   tailwindcss:
     specifier: 3.3.2
     version: 3.3.2

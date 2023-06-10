@@ -1,5 +1,6 @@
 "use client";
 import { useCallback, useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { Database } from "@/types/supabase";
 import {
   Session,
@@ -7,8 +8,10 @@ import {
 } from "@supabase/auth-helpers-nextjs";
 
 import { Button, Label, TextInput } from "flowbite-react";
+import { HiOutlineArrowLeft } from "react-icons/hi";
 
 export default function AccountForm({ session }: { session: Session | null }) {
+  const router = useRouter();
   const supabase = createClientComponentClient<Database>();
   const [loading, setLoading] = useState(true);
   const [fullname, setFullname] = useState<string | null>(null);
@@ -79,9 +82,17 @@ export default function AccountForm({ session }: { session: Session | null }) {
     }
   }
 
+  const handleBackToMain = () => {
+    router.push("/");
+  };
+
   return (
     <div className="flex h-screen w-screen flex-col items-center justify-center">
       <div className="w-[30rem]">
+        <Button color="light" size="sm" onClick={handleBackToMain}>
+          <HiOutlineArrowLeft className="mr-2 h-5 w-5" />
+          <p>Back to main page</p>
+        </Button>
         <h1 className="text-4xl font-medium text-slate-700">
           Account Settings
         </h1>
