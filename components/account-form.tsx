@@ -81,7 +81,7 @@ export default function AccountForm({ session }: { session: Session | null }) {
 
   return (
     <div className="flex h-screen w-screen flex-col items-center justify-center">
-      <div className="w-3/12">
+      <div className="w-[30rem]">
         <h1 className="text-4xl font-medium text-slate-700">
           Account Settings
         </h1>
