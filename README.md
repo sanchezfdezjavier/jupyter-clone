@@ -1,5 +1,7 @@
 # Jupyter Notebook Clone
 
+![Preview](Screenshot%202023-06-11%20at%2012.59.08.png)
+
 ## Getting Started
 
 First, run the development server:

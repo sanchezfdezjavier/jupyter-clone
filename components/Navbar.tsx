@@ -20,12 +20,12 @@ export default function Navbar() {
 
   return (
     <div
-      className={`fixed top-0 z-20 flex w-screen items-center justify-center bg-white/30 ${
+      className={`border-b-2 fixed top-0 z-20 flex w-screen items-center justify-center bg-white/30 ${
         hasScrolled ? "shadow-sm" : ""
       } backdrop-blur-sm`}
     >
       <div className="xs:w-9/12 flex items-center justify-between py-[0.5rem] md:w-9/12 lg:w-9/12">
-        <Image src={stackLogo} alt="Stack AI logo" width={140} fill={false} />
+        <Image src={stackLogo} alt="Stack AI logo" width={120} fill={false} />
         <UserLogin />
       </div>
     </div>

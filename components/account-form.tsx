@@ -158,7 +158,7 @@ export default function AccountForm({ session }: { session: Session | null }) {
           </Button>
           <div className="ml-2">
             <form action="/auth/signout" method="post">
-              <Button className="button block" type="submit" color="failure">
+              <Button type="submit" color="failure" outline>
                 Sign out
               </Button>
             </form>
