@@ -8,7 +8,7 @@ import { SiFastapi } from "react-icons/si";
 export default function Footer() {
   return (
     <div className="absolute bottom-0">
-      <div className="flex w-screen flex-col items-center bg-gray-100 py-[2rem] text-slate-400">
+      <div className="flex w-screen flex-col items-center bg-gray-100 py-[1.5rem] text-slate-400">
         <p className="w-11/12 text-center">
           Built with love by{" "}
           <a
@@ -17,7 +17,7 @@ export default function Footer() {
           >
             Javi Sanchez
           </a>{" "}
-          for my future fellow collegues of Stack AI ❤️ © 2023
+          for my future fellow colleagues of Stack AI 😉 © 2023
         </p>
         <div className="mt-[1rem] flex w-11/12 flex-row justify-center">
           <span className="m-2 inline-block hover:text-blue-600">

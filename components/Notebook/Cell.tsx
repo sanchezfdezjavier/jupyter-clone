@@ -6,13 +6,16 @@ import { Button } from "flowbite-react";
 import { FaTrash } from "react-icons/fa";
 import { FaPlay } from "react-icons/fa";
 
+import Output from "@/components/Notebook/Output";
+
 interface CellProps {
   id: string;
   code?: string;
   newCell?: boolean;
   onExecute: (id: string, code: string) => void;
-  onDelete: (id: string) => void; // Add this prop
+  onDelete: (id: string) => void;
   inputRef?: any; // FIXME: Add the correct type
+  executionResult?: string;
 }
 
 const CodeEditor = dynamic(
@@ -23,12 +26,17 @@ const CodeEditor = dynamic(
 const Cell = ({
   id,
   code = "",
-  newCell = false, // TODO: Drop
+  newCell = false,  // TODO: Drop?
   onExecute,
   onDelete,
   inputRef,
+  executionResult,
 }: CellProps) => {
   const [cellCode, setCellCode] = useState(code);
+
+  useEffect(() => {
+    setCellCode(code);
+  }, [code]);
 
   const handleExecute = () => {
     onExecute(id, cellCode);
@@ -38,13 +46,18 @@ const Cell = ({
     onDelete(id);
   };
 
+  const handleCodeChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const newCode = event.target.value;
+    setCellCode(newCode);
+  };
+
   return (
     <div className="my-4" ref={inputRef}>
       <div>
         <CodeEditor
           value={cellCode}
           language="python"
-          onChange={(evn) => setCellCode(evn.target.value)}
+          onChange={handleCodeChange}
           padding={10}
           style={{
             fontSize: 14,
@@ -68,6 +81,7 @@ const Cell = ({
       >
         <FaTrash size={12} className="text-slate-800" />
       </Button></div>
+      {executionResult ? <Output content={executionResult} /> : null}
     </div>
   );
 };

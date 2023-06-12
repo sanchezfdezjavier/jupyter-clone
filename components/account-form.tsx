@@ -91,7 +91,7 @@ export default function AccountForm({ session }: { session: Session | null }) {
       <div className="w-[30rem]">
         <Button color="light" size="sm" onClick={handleBackToMain}>
           <HiOutlineArrowLeft className="mr-2 h-5 w-5" />
-          <p>Back to main page</p>
+          <p>Notebooks</p>
         </Button>
         <h1 className="text-4xl font-medium text-slate-700">
           Account Settings

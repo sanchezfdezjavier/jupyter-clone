@@ -24,8 +24,8 @@ export default function Navbar() {
         hasScrolled ? "shadow-sm" : ""
       } backdrop-blur-sm`}
     >
-      <div className="xs:w-9/12 flex items-center justify-between py-[0.5rem] md:w-9/12 lg:w-9/12">
-        <Image src={stackLogo} alt="Stack AI logo" width={120} fill={false} />
+      <div className="w-11/12 flex items-center justify-between py-[0.5rem] sm:w-11/12 lg:w-9/12">
+        <Image src={stackLogo} alt="Jupyter logo" width={120} fill={false} />
         <UserLogin />
       </div>
     </div>
