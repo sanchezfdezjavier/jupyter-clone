@@ -9,6 +9,13 @@ type Props = {
   name: string;
 };
 
+type Cell = {
+  id: string;
+  source: string;
+  outputs?: string;
+};
+
+
 const Notebook = (props: Props) => {
   const [cells, setCells] = useState<
     Array<{ id: string; code: string; result?: string }>
@@ -23,7 +30,7 @@ const Notebook = (props: Props) => {
 
       
       if (response.ok) {
-        const notebookCells = data.document.notebook.cells.map(cell => ({
+        const notebookCells = data.document.notebook.cells.map((cell: Cell) => ({
           id: cell.id,
           code: cell.source,
           result: cell.outputs,
@@ -104,10 +111,10 @@ const Notebook = (props: Props) => {
     >
       <span>
         <p>
-          <span className="font-bold">
-            Make sure you have a stable internet connection!
-          </span>
-          {" "}Right now we only rely on HTTP, we're working on implementing websockets for a better real-time experience. Happy hacking! 🚀
+        <span className="font-bold">
+          Make sure you have a stable internet connection!
+        </span>
+        {" "}Right now we only rely on HTTP, we&apos;re working on implementing websockets for a better real-time experience. Happy hacking! 🚀
         </p>
       </span>
     </Alert>

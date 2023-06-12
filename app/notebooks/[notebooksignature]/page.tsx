@@ -1,9 +1,8 @@
 "use client";
 import Notebook from "@/components/Notebook/Notebook";
 import { usePathname } from "next/navigation";
-import Footer from "@/components/Footer";
 
-export default function page() {
+export default function Page() {
     const pathname = usePathname()
     const notebookName = pathname.split('/')[2].split('-')[0]
     const notebookId = pathname.split('-')[1]

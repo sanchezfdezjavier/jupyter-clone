@@ -28,11 +28,11 @@ export default function Home() {
   return (
     <main className="flex min-h-screen w-screen flex-col items-center justify-start">
       <Navbar />
-      {user ? (
-        <UserDashboard username={user.email} />  // FIXME: Fix prop type
+      {user && user.email ? (
+        <UserDashboard username={user.email} />
       ) : (
-        <div className="text-4xl pt-[20rem]">
-          <p>Please log in to view your dashboard.</p>
+        <div className="text-4xl font-light tracking-tighter pt-[25rem] px-[2rem]">
+          <p>Please, log in to view your dashboard.</p>
         </div>
       )}
       <Footer />

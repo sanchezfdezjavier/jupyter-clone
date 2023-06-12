@@ -35,7 +35,11 @@ const UserDocuments = ({ username }: Props) => {
         throw new Error(data.error || "An unknown error occurred.")
       }
     } catch (err) {
-      setError(err.message)
+      if (err instanceof Error) {
+        setError(err.message)
+      } else {
+        setError("An unknown error occurred.")
+      }
     } finally {
       setIsLoading(false)
     }
@@ -66,9 +70,11 @@ const UserDocuments = ({ username }: Props) => {
         throw new Error(data.error || "An unknown error occurred.")
       }
     } catch (err) {
-      setError(err.message)
-      console.log(err);
-      console.log(`Sending filename: ${newFilename}, user: ${username}`);
+      if (err instanceof Error) {
+        setError(err.message)
+      } else {
+        setError("An unknown error occurred.")
+      }
     } finally {
       setOpenModal(undefined)
     }
