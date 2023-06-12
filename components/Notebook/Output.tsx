@@ -1,11 +1,11 @@
 type OutputProps = {
-  output: string;
+  content: string;
 };
 
-const Output = ({ output }: OutputProps) => {
+const Output = (props: OutputProps) => {
   return (
-    <div className="mt-4 p-2">
-      <pre>{output}</pre>
+    <div className="mt-4 p-2 overflow-auto">
+      <p className="font-mono">{props.content}</p>
     </div>
   );
 };

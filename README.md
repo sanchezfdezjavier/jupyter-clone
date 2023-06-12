@@ -1,6 +1,8 @@
 # Jupyter Notebook Clone
 
-![Preview](preview.png)
+![Vercel](https://vercelbadge.vercel.app/api/sanchezfdezjavier/jupyter-clone)
+
+![Preview](./preview.png)
 
 ## Getting Started
 
