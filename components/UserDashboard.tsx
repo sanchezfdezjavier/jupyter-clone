@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { Button, Modal, Label, TextInput, ListGroup } from "flowbite-react";
 import Link from "next/link"; 
+import { base_api_endpoint } from "@/config"
 
 import { ImSpinner3 } from 'react-icons/im'
 
@@ -25,7 +26,7 @@ const UserDocuments = ({ username }: Props) => {
   const fetchData = useCallback(async () => {
     setIsLoading(true)
     try {
-      const response = await fetch(`http://localhost:8000/notebooks/${username}`)
+      const response = await fetch(`${base_api_endpoint}/notebooks/${username}`)
       const data = await response.json()
 
       if (response.ok) {
@@ -55,7 +56,7 @@ const UserDocuments = ({ username }: Props) => {
     if (!newFilename) return;
 
     try {
-      const response = await fetch('http://localhost:8000/notebook', {
+      const response = await fetch(`${base_api_endpoint}/notebook`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -90,27 +91,29 @@ const UserDocuments = ({ username }: Props) => {
 
   return (
     <div className="pt-[6rem] w-11/12 lg:w-6/12">
-      <Modal show={openModal === 'default'} onClose={() => setOpenModal(undefined)}>
+      <Modal show={openModal === 'default'} onClose={() => setOpenModal(undefined)} size="sm">
         <Modal.Header>Create new notebook</Modal.Header>
-        <Modal.Body>
-          <form className="flex flex-col gap-4" onSubmit={createNewNotebook}>
-            <div>
-              <div className="mb-2 block">
+          <Modal.Body>
+            <form className="flex flex-col gap-4" onSubmit={createNewNotebook}>
+              <div>
+                <div className="mb-2 block">
+                </div>
+                <TextInput
+                  ref={newFilenameRef}
+                  id="filename"
+                  placeholder="Notebook name"
+                  required
+                  type="text"
+                  sizing="sm"
+                />
               </div>
-              <TextInput
-                ref={newFilenameRef}
-                id="filename"
-                placeholder="Notebook name"
-                required
-                type="text"
-                sizing="sm"
-              />
-            </div>
-            <Button type="submit" color="success" size="xs">
-              Create new notebook
-            </Button>
-          </form>
-        </Modal.Body>
+              <div>
+                <Button type="submit" color="success" size="xs">
+                  Create new notebook
+                </Button>
+              </div>
+            </form>
+          </Modal.Body>
       </Modal>
       <div className="flex items-center justify-between mb-8"><h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-slate-700">Your Notebooks</h1>
       <Button onClick={() => setOpenModal('default')} color="success" size="xs" className="self-align-center">Create new notebook</Button></div>

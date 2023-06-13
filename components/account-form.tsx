@@ -147,6 +147,7 @@ export default function AccountForm({ session }: { session: Session | null }) {
         <div className="mt-4 flex">
           <Button
             type="submit"
+            size="sm"
             color="success"
             className="button primary block"
             onClick={() =>
@@ -158,7 +159,7 @@ export default function AccountForm({ session }: { session: Session | null }) {
           </Button>
           <div className="ml-2">
             <form action="/auth/signout" method="post">
-              <Button type="submit" color="failure" outline>
+              <Button type="submit" color="failure" size="sm" outline>
                 Sign out
               </Button>
             </form>
