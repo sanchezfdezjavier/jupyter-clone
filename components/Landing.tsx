@@ -15,7 +15,8 @@ export default function Landing() {
               Run your Python code anywhere you go, from testing small scripts
               to building the AGI.
             </p>
-            <p className="mt-8 text-start text-md font-normal text-gray-400 dark:text-gray-200 lg:text-md">
+            
+            <p className="mt-8 text-start text-md font-normal text-gray-400 dark:text-gray-200 lg:text-md"> {/* eslint-disable-next-line react/no-unescaped-entities */}
               Hahaha, no please don't do that. This is running tiny AWS EC2 instance.
             </p>
           </div>
