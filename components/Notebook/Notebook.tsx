@@ -5,6 +5,7 @@ import { Button, Alert } from "flowbite-react";
 import { FaPlus } from "react-icons/fa";
 
 import { base_api_endpoint } from "@/config"
+import BackToNotebooks from "../BackToNotebooks";
 
 type Props = {
   id: string;
@@ -62,7 +63,7 @@ const Notebook = (props: Props) => {
 
   const deleteCell = async (id: string) => {
     try {
-      const response = await fetch(`${base_api_endpoint}/notebook/${props.id}/cell/${id}`, {  // TODO: Change the endpoint when the backend is ready
+      const response = await fetch(`${base_api_endpoint}/notebook/${props.id}/cell/${id}`, {
         method: 'DELETE',
       });
   
@@ -82,7 +83,7 @@ const Notebook = (props: Props) => {
       if (!id) {
         throw new Error('Cell id is undefined');
       }
-      const response = await fetch(`${base_api_endpoint}/notebook/${props.id}/cell/${id}/execute_and_update`, { // TODO: Update endpoint when the backend is ready
+      const response = await fetch(`${base_api_endpoint}/notebook/${props.id}/cell/${id}/execute_and_update`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -106,10 +107,11 @@ const Notebook = (props: Props) => {
   };
 
   return (
-    <div className="w-11/12 pt-[6rem] lg:w-6/12 pb-[10rem]">
+    <div className="w-11/12 pt-[2rem] lg:w-6/12 pb-[10rem]">
       <Alert
       color="warning"
       withBorderAccent
+      className="mb-8"
     >
       <span>
         <p>
@@ -120,7 +122,8 @@ const Notebook = (props: Props) => {
         </p>
       </span>
     </Alert>
-      <h1 className="text-4xl tracking-tight">{props.name}.ipynb</h1>
+    <BackToNotebooks/>
+      <h1 className="text-4xl tracking-tight mb-8">{props.name}.ipynb</h1>
       {cells.map((cell, index) => (
         <Cell
           key={cell.id}
@@ -133,7 +136,13 @@ const Notebook = (props: Props) => {
           executionResult={cell.result}
         />
       ))}
-    <div><Button
+    <div>
+      {cells.length === 0 && (
+        <div className="flex items-center">
+          <p className="text-slate-400">Create a new cell to start coding!</p>
+        </div>
+      )}
+      <Button
         onClick={addCell}
         color="light"
         size="xs"

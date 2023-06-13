@@ -7,6 +7,7 @@ import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { User } from "@supabase/supabase-js";
 import { Database } from "@/types/supabase";
 import { Button, Badge } from "flowbite-react";
+import { LuSettings } from "react-icons/lu";
 
 import { base_frontend_endpoint } from "@/config";
 
@@ -37,10 +38,11 @@ export default function UserAuthComponent() {
     return (
       <div className="flex items-center space-x-4">
         <div className="text-sm font-medium">
-          <Badge color="gray">{user.email}</Badge>
+          <Badge color="gray" className="hidden sm:block">{user.email}</Badge>
         </div>
-        <Button color="gray" size="xs" onClick={goToAccount}>
-          Account Settings
+        <Button color="gray" onClick={goToAccount}>
+          Account
+          <LuSettings size={15} className="ml-1"/>
         </Button>
       </div>
     );
@@ -53,7 +55,7 @@ export default function UserAuthComponent() {
         theme="light"
         showLinks={false}
         providers={["google"]}
-        redirectTo={`${base_frontend_endpoint}/auth/callback`} // TODO: Update when deployed
+        redirectTo={`${base_frontend_endpoint}/auth/callback`}
         onlyThirdPartyProviders={true}
       />
     );

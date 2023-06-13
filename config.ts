@@ -11,7 +11,6 @@
 // Uncomment this line when testing the application locally.
 // export const base_api_endpoint: string = "http://localhost:8000"; // LOCAL TESTING 🚧
 
-// This is the backend service URL for production. Replace this with your production server IP or hostname.
 // Uncomment this line when deploying the application for production usage.
 export const base_api_endpoint: string = "https://api.jupyter.javisf.com";  // PRODUCTION 🔥
 

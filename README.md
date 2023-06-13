@@ -4,7 +4,9 @@
 
 ![Preview](./preview.png)
 
-## Getting Started
+Play with it [here](https://jupyter.javisf.com/)!
+
+## Local development
 
 First, run the development server:
 
