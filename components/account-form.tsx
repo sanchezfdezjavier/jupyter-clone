@@ -93,7 +93,7 @@ export default function AccountForm({ session }: { session: Session | null }) {
           <HiOutlineArrowLeft className="mr-2 h-5 w-5" />
           <p>Notebooks</p>
         </Button>
-        <h1 className="text-4xl font-medium text-slate-700 mt-8">
+        <h1 className="mt-8 text-4xl font-medium text-slate-700">
           Account Settings
         </h1>
         <div>
