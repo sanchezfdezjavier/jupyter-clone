@@ -8,6 +8,8 @@ import { User } from "@supabase/supabase-js";
 import { Database } from "@/types/supabase";
 import { Button, Badge } from "flowbite-react";
 
+import { base_frontend_endpoint } from "@/config";
+
 export default function UserAuthComponent() {
   const supabase = createClientComponentClient<Database>();
   const router = useRouter();
@@ -51,7 +53,7 @@ export default function UserAuthComponent() {
         theme="light"
         showLinks={false}
         providers={["google"]}
-        redirectTo="http://localhost:3000/auth/callback" // TODO: Update when deployed
+        redirectTo={`${base_frontend_endpoint}/auth/callback`} // TODO: Update when deployed
         onlyThirdPartyProviders={true}
       />
     );

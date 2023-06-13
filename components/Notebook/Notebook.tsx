@@ -4,6 +4,8 @@ import Cell from "@/components/Notebook/Cell"
 import { Button, Alert } from "flowbite-react";
 import { FaPlus } from "react-icons/fa";
 
+import { base_api_endpoint } from "@/config"
+
 type Props = {
   id: string;
   name: string;
@@ -25,7 +27,7 @@ const Notebook = (props: Props) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`http://localhost:8000/notebook/${props.id}`); // TODO: Change the endpoint when the backend is ready
+      const response = await fetch(`${base_api_endpoint}/notebook/${props.id}`); // TODO: Change the endpoint when the backend is ready
       const data = await response.json();
 
       
@@ -60,7 +62,7 @@ const Notebook = (props: Props) => {
 
   const deleteCell = async (id: string) => {
     try {
-      const response = await fetch(`http://localhost:8000/notebook/${props.id}/cell/${id}`, {  // TODO: Change the endpoint when the backend is ready
+      const response = await fetch(`${base_api_endpoint}/notebook/${props.id}/cell/${id}`, {  // TODO: Change the endpoint when the backend is ready
         method: 'DELETE',
       });
   
@@ -80,7 +82,7 @@ const Notebook = (props: Props) => {
       if (!id) {
         throw new Error('Cell id is undefined');
       }
-      const response = await fetch(`http://localhost:8000/notebook/${props.id}/cell/${id}/execute_and_update`, { // TODO: Update endpoint when the backend is ready
+      const response = await fetch(`${base_api_endpoint}/notebook/${props.id}/cell/${id}/execute_and_update`, { // TODO: Update endpoint when the backend is ready
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -138,7 +140,8 @@ const Notebook = (props: Props) => {
         className="mt-2 hover:text-slate-400"
       >
         <FaPlus size={15} />
-      </Button></div>
+      </Button>
+    </div>
     </div>
   );
 };
