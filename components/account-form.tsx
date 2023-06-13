@@ -74,11 +74,11 @@ export default function AccountForm({ session }: { session: Session | null }) {
         updated_at: new Date().toISOString(),
       });
       if (error) throw error;
-      alert("Profile updated!");
     } catch (error) {
       alert("Error updating the data!");
     } finally {
       setLoading(false);
+      router.push("/");
     }
   }
 
@@ -88,12 +88,12 @@ export default function AccountForm({ session }: { session: Session | null }) {
 
   return (
     <div className="flex h-screen w-screen flex-col items-center justify-center">
-      <div className="w-[30rem]">
+      <div className="w-11/12 lg:w-[30rem]">
         <Button color="light" size="sm" onClick={handleBackToMain}>
           <HiOutlineArrowLeft className="mr-2 h-5 w-5" />
           <p>Notebooks</p>
         </Button>
-        <h1 className="text-4xl font-medium text-slate-700">
+        <h1 className="text-4xl font-medium text-slate-700 mt-8">
           Account Settings
         </h1>
         <div>

@@ -20,11 +20,11 @@ export default function Navbar() {
 
   return (
     <div
-      className={`border-b-2 fixed top-0 z-20 flex w-screen items-center justify-center bg-white/30 ${
+      className={`fixed top-0 z-20 flex w-screen items-center justify-center border-b-2 bg-white/30 ${
         hasScrolled ? "shadow-sm" : ""
       } backdrop-blur-sm`}
     >
-      <div className="w-11/12 flex items-center justify-between py-[0.5rem] sm:w-11/12 lg:w-9/12">
+      <div className="flex w-11/12 items-center justify-between py-[0.2rem] sm:w-11/12 lg:w-9/12">
         <Image src={stackLogo} alt="Jupyter logo" width={120} fill={false} />
         <UserLogin />
       </div>

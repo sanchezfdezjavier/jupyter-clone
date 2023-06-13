@@ -7,7 +7,6 @@ import { SiFastapi } from "react-icons/si";
 
 export default function Footer() {
   return (
-    <div className="absolute bottom-0">
       <div className="flex w-screen flex-col items-center bg-gray-100 py-[1.5rem] text-slate-400">
         <p className="w-11/12 text-center">
           Built with love by{" "}
@@ -40,6 +39,5 @@ export default function Footer() {
           </span>
         </div>
       </div>
-    </div>
   );
 }
