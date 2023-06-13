@@ -27,7 +27,7 @@ export default function Home() {
   };
 
   return (
-    <main className="center flex min-h-screen w-screen flex-col items-center justify-between">
+    <main className="flex min-h-screen w-screen flex-col items-center justify-between">
       <Navbar />
       {user && user.email ? (
         <UserDashboard username={user.email} />
