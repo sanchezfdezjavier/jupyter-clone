@@ -20,7 +20,7 @@ export default function Navbar() {
 
   return (
     <div
-      className={`fixed top-0 z-20 flex w-screen items-center justify-center border-b-2 bg-white/30 ${
+      className={`fixed top-0 z-20 my-1 flex w-screen items-center justify-center border-b-2 bg-white/30 ${
         hasScrolled ? "shadow-sm" : ""
       } backdrop-blur-sm`}
     >

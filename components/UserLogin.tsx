@@ -38,11 +38,13 @@ export default function UserAuthComponent() {
     return (
       <div className="flex items-center space-x-4">
         <div className="text-sm font-medium">
-          <Badge color="gray" className="hidden sm:block">{user.email}</Badge>
+          <Badge color="gray" className="hidden sm:block">
+            {user.email}
+          </Badge>
         </div>
         <Button color="gray" onClick={goToAccount}>
           Account
-          <LuSettings size={15} className="ml-1"/>
+          <LuSettings size={15} className="ml-1" />
         </Button>
       </div>
     );

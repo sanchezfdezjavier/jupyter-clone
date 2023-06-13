@@ -32,7 +32,7 @@ export default function Home() {
       {user && user.email ? (
         <UserDashboard username={user.email} />
       ) : (
-        <Landing/>
+        <Landing />
       )}
       <Footer />
     </main>
