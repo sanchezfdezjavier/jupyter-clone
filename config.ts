@@ -13,7 +13,7 @@
 
 // This is the backend service URL for production. Replace this with your production server IP or hostname.
 // Uncomment this line when deploying the application for production usage.
-export const base_api_endpoint: string = "http://34.235.133.22";  // PRODUCTION 🔥
+export const base_api_endpoint: string = "https://api.jupyter.javisf.com";  // PRODUCTION 🔥
 
 
 // URLs for frontend service.
